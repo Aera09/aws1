@@ -28,3 +28,57 @@ print("\nTuple:", numbers_tuple)
 
 # Slicing
 print("Slicing (index 2 to 5):", numbers_tuple[2:6])
+
+# List Operations
+lst = [10, 20, 30]
+lst.append(40)
+lst.insert(1, 15)
+lst.remove(20)
+last = lst.pop()
+lst.extend([50, 60])
+lst.sort()
+lst.reverse()
+lst[::-1]
+print("Updated list:", lst)
+print("Slicing:", lst[1:4])
+
+# Tuple Operations
+t = (5, 3, 8, 3, 9)
+print("Length:", len(t))
+print("Max:", max(t))
+print("Min:", min(t))
+print("Count of 3:", t.count(3))
+print("Index of 8:", t.index(8))
+
+# Set operations
+s1 = {1, 2, 3}
+s2 = {3, 4, 5}
+s1.add(8)
+s1.remove(3)
+print("Union:", s1 | s2)
+result = s1.union(s2)
+print("Intersection:", s1 & s2)
+print("Difference:", s1 - s2)
+
+# Dictionary Operations
+student = {"name": "Faria", "age": 22}
+student["marks"] = 90
+student.update({"age": 23})
+student.pop("marks")
+print(student)
+print(student.keys())
+print(student.values())
+print(student.items())
+print("Symmetric Difference:", s1 ^ s2)
+
+# Nested Dictionary
+students = {
+    1: {"name": "Aisha", "marks": 85},
+    2: {"name": "Rahul", "marks": 90}
+}
+students[1]["marks"] # Access Value
+students[1]["grade"] = "A" # Insert Value
+students[1].pop("age) # Remove Value
+students[2].update({"name":"Rohan"}) # Update Value
+for roll, info in students.items():
+    print(roll, info["name"], info["marks"])
