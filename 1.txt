@@ -1,23 +1,30 @@
-#Activation
-    import numpy as np
-    import matplotlib.pyplot as plt
+# a) Create a list of numbers. Remove duplicates and sort in descending order.
+numbers = [12, 5, 7, 12, 9, 5, 20, 15]
+print("Original List:", numbers)
 
-    x= np.linspace(-6,6,2000)
-    activations = {
-        "sigmoid":(lambda x:(s:=1/(1+np.exp(-x)),s*(1-s))),
-        "tanh":(lambda x:(t:=np.tanh(x),1-t**2)),
-        "relu":(lambda x:(r:=np.maximum(0,x),(x>0).astype(float))),
-        "leaky":(lambda x,a=0.025:(np.where(x>0,x,a*x),np.where(x>0,1,a*x))),
-        "prelu":(lambda x,a=0.25:(np.where(x>0,x,a*x),np.where(x>0,1,a*x))),
-        "elu":(lambda x,a=1.0:(np.where(x>0,x,a*(np.exp(x)-1)),np.where(x>0,1,a*np.exp(x)))),
-        "softplus":(lambda x:(np.log1p(np.exp(x)),1/(1+np.exp(-x))))
-    }
-    for name,f in activations.items():
-        y,dy = f(x)
-        plt.plot(x,y,label=name)
-        plt.plot(x,dy,label=f"derivate")
-        plt.axhline(0,color='black')
-        plt.axvline(0,color='black')
-        plt.legend()
-        plt.title(name)
-        plt.show()
+# Remove duplicates using set, then convert back to list
+unique_numbers = list(set(numbers))
+
+# Sort in descending order
+unique_numbers.sort(reverse=True)
+print("Final List (Unique & Descending):", unique_numbers)
+
+# b) Create a nested dictionary storing student names and marks in 3 subjects.
+students = {
+    "Aishwarya": {"Math": 85, "Science": 90, "English": 88},
+    "Rohan": {"Math": 78, "Science": 82, "English": 80},
+    "Sneha": {"Math": 92, "Science": 88, "English": 95}
+}
+
+# Print average marks of each student
+print("\nAverage Marks of Each Student:")
+for name, marks in students.items():
+    avg = sum(marks.values()) / len(marks)
+    print(name, "->", avg)
+
+# c) Convert the final list into a tuple and print slicing from index 2 to 5
+numbers_tuple = tuple(unique_numbers)
+print("\nTuple:", numbers_tuple)
+
+# Slicing
+print("Slicing (index 2 to 5):", numbers_tuple[2:6])
